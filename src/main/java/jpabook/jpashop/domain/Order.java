@@ -31,10 +31,9 @@ public class Order {
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    private LocalDateTime orderDate;
+    private LocalDateTime orderDate; // 주문 시간
 
     public void setMember(Member member) {
         this.member = member;
