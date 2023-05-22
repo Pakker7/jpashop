@@ -28,7 +28,8 @@ public class Member {
     // 그래서 실제 이 Member의 orders에 값을 넣는다고 해서 실제 Order Entity의 FK값이 변경되지 않음
     // 반대로 Order Entity에서  member의 member_id값을 바꾸면 다른 member로 FK값이 변경이 됨~~~~
     // 영향 주는 얘는 실제 FK 맵핑하는 값들임
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
+
 
 }

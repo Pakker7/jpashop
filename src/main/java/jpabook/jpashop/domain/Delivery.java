@@ -15,18 +15,19 @@ public class Delivery {
     @Column(name="delivery_id")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "delivery") // Order에도 name을 delivery라고 쓰고, 여기도 delivery라고 쓰냐?
+    // one to one 에서는 아무거나 메인으로 잡아도 되는데, 이번에는 order로 잡겠음.
+    @OneToOne(mappedBy = "delivery")
     private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    private String address;
+    @Embedded
+    private Address address;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) // Enum에는 꼭 넣어야 한다.
+    // EnumType.ORDINAL -> default임 0,1 이런식으로 숫자로만 나옴.... default가 그러니까..절대 조심하고 꼭 EnumType.STRING 넣어야 함
     private DeliveryStatus deliveryStatus;
-
 
 }

@@ -33,12 +33,7 @@ public class Item {
     private int stockQuantity;
 
     @ManyToMany(mappedBy = "items")
-    private Category category;
-
-//    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<OrderItem> orderItems = new ArrayList<>();
-//    // --> 굳이 필요가 없음 왜 상품별 주문내역을 가지고 있으려고함?
-//    // --> 아니 필요할 수도 있지 상품별로 주문 건수 확인하려면??
+    private List<Category> category;
 
 }
 
@@ -47,6 +42,7 @@ public class Item {
 //InheritanceType.SINGLE_TABLE (기본값):
 // 상속 구조를 하나의 테이블로 매핑합니다.
 // 부모 클래스와 자식 클래스의 모든 속성을 하나의 테이블로 통합하여 매핑하며, @DiscriminatorColumn을 사용하여 자식 클래스를 구분합니다.
+// 한테이블에 다 때려박기
 //
 //InheritanceType.JOINED:
 // 상속 구조를 각각의 테이블로 매핑합니다. 각각의 클래스에 대해 별도의 테이블이 생성되며,
