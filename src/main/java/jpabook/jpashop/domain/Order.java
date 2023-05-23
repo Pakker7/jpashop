@@ -29,7 +29,7 @@ public class Order {
 
     // one to one 에서는 아무거나 메인으로 잡아도 되는데, 이번에는 메인을 order로 잡겠음.
     // 그럼 Delivery에서는 mappyedby를 delivery로 적어야 겠지?
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) //모든 연관관계는 지연로딩으로 설정 @OneToOne, @ManyToOne 둘다 lazy
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 

@@ -16,7 +16,7 @@ public class Delivery {
     private Long id;
 
     // one to one 에서는 아무거나 메인으로 잡아도 되는데, 이번에는 order로 잡겠음.
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
