@@ -29,7 +29,6 @@ public class Member {
     // 반대로 Order Entity에서  member의 member_id값을 바꾸면 다른 member로 FK값이 변경이 됨~~~~
     // 영향 주는 얘는 실제 FK 맵핑하는 값들임
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-
     private List<Order> orders = new ArrayList<>();
     // 초기화 필수
     // 1. null문제에서 안전해짐

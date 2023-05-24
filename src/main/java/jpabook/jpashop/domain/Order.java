@@ -43,6 +43,8 @@ public class Order {
 
     private LocalDateTime orderDate; // 주문 시간
 
+    //연관 관계 맵핑필요
+    // 핵심적으로 control 하는 쪽이 set 추가해 주는 것이 좋다
     public void setMember(Member member) {
         this.member = member;
         member.getOrders().add(this);
