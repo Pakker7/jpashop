@@ -9,19 +9,22 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor //final 있는 필드만 가지고 생성자를 만들어줌
 @Transactional (readOnly = true)
 public class MemberService {
 
-    private MemberRepository memberRepository;
-
+    private final MemberRepository memberRepository; // final을 꼭 넣어줘야 한다.
 
     /*
     * 회원가입
     * */
     @Transactional // 변경
-    public void join(Member member) {
+    public Long join(Member member) {
         validationDuplicateMember(member);
+
+        memberRepository.save(member);
+        return member.getId();
+
     }
 
     private void validationDuplicateMember(Member member)  {
