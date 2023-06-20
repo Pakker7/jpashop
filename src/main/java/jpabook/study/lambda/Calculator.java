@@ -1,4 +1,4 @@
-package jpabook.jpashop.study;
+package jpabook.study.lambda;
 
 @FunctionalInterface
 public interface Calculator {

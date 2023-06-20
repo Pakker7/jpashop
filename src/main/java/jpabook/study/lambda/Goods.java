@@ -1,4 +1,4 @@
-package jpabook.jpashop.study;
+package jpabook.study.lambda;
 
 public interface Goods {
     public void doSome();

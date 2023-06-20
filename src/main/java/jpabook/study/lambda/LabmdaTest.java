@@ -1,4 +1,4 @@
-package jpabook.jpashop.study;
+package jpabook.study.lambda;
 
 import java.util.Arrays;
 import java.util.List;
