@@ -35,6 +35,9 @@ public class Item {
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 
+    public void removeStock(int count) {
+        this.stockQuantity -= count;
+    }
 }
 
 
