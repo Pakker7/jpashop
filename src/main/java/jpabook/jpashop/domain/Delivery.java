@@ -30,4 +30,5 @@ public class Delivery {
     // EnumType.ORDINAL -> default임 0,1 이런식으로 숫자로만 나옴.... default가 그러니까..절대 조심하고 꼭 EnumType.STRING 넣어야 함
     private DeliveryStatus deliveryStatus;
 
+
 }
