@@ -2,6 +2,7 @@ package jpabook.jpashop.domain.item;
 
 import jpabook.jpashop.domain.Category;
 import jpabook.jpashop.domain.OrderItem;
+import jpabook.jpashop.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +37,11 @@ public class Item {
     private List<Category> categories = new ArrayList<>();
 
     public void removeStock(int count) {
-        this.stockQuantity -= count;
+        int restStock = this.stockQuantity - count;
+        if (restStock < 0) {
+            throw new NotEnoughStockException("주문 수량이 재고 수량을 초과했습니다.");
+        }
+        this.stockQuantity = restStock;
     }
 }
 
